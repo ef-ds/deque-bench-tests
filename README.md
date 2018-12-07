@@ -1,2 +1,11 @@
-# deque-bench-tests
-Package deque-bench-tests contains benchmark tests comparing ef-ds deque with other deques
+# deque-bench-tests [![Build Status](https://travis-ci.com/ef-ds/deque-bench-tests.svg?branch=master)](https://travis-ci.com/ef-ds/deque-bench-tests)
+
+Package deque-bench-tests contains benchmark tests comparing [deque](https://github.com/ef-ds/deque) with other deques.
+
+
+## Tests
+See the [benchmark tests](BENCHMARK_TESTS.md) for details.
+
+
+## Performance
+See [performance](PERFORMANCE.md) for details.
