@@ -30,8 +30,28 @@ import (
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
 	phf "github.com/phf/go-queue/queue"
+	eapache "gopkg.in/eapache/queue.v1"
 	cookiejar "gopkg.in/karalabe/cookiejar.v2/collections/deque"
 )
+
+func BenchmarkMicroserviceEapacheQueue(b *testing.B) {
+	var q *eapache.Queue
+	benchmarkMicroservice(
+		b,
+		func() {
+			q = eapache.New()
+		},
+		func(v interface{}) {
+			q.Add(v)
+		},
+		func() (interface{}, bool) {
+			return q.Remove(), true
+		},
+		func() bool {
+			return q.Length() == 0
+		},
+	)
+}
 
 func BenchmarkMicroserviceListQueue(b *testing.B) {
 	var l *list.List
