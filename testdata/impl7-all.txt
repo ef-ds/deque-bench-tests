@@ -81,6 +81,16 @@ BenchmarkFillImpl7Queue/1000000-4   	      30	  46044190 ns/op	32251616 B/op	 10
 BenchmarkFillImpl7Queue/1000000-4   	      30	  45887214 ns/op	32251616 B/op	 1015633 allocs/op
 BenchmarkFillImpl7Queue/1000000-4   	      30	  45225584 ns/op	32251616 B/op	 1015633 allocs/op
 BenchmarkFillImpl7Queue/1000000-4   	      30	  45635123 ns/op	32251616 B/op	 1015633 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.4 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.6 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	30000000	        43.2 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.5 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.8 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.4 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.5 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.5 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.6 ns/op	      48 B/op	       1 allocs/op
+BenchmarkMicroserviceImpl7Queue/0-4     	50000000	        37.4 ns/op	      48 B/op	       1 allocs/op
 BenchmarkMicroserviceImpl7Queue/1-4 	 2000000	       783 ns/op	     432 B/op	      17 allocs/op
 BenchmarkMicroserviceImpl7Queue/1-4 	 2000000	       625 ns/op	     432 B/op	      17 allocs/op
 BenchmarkMicroserviceImpl7Queue/1-4 	 2000000	       627 ns/op	     432 B/op	      17 allocs/op

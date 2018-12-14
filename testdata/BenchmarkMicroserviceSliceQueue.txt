@@ -1,3 +1,13 @@
+Benchmark/0-4     	50000000	        38.7 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.4 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.3 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.5 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	30000000	        38.6 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	30000000	        38.6 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.4 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.6 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.7 ns/op	      32 B/op	       1 allocs/op
+Benchmark/0-4     	50000000	        38.6 ns/op	      32 B/op	       1 allocs/op
 Benchmark/1-4 	 3000000	       475 ns/op	     232 B/op	      14 allocs/op
 Benchmark/1-4 	 3000000	       468 ns/op	     232 B/op	      14 allocs/op
 Benchmark/1-4 	 3000000	       487 ns/op	     232 B/op	      14 allocs/op
