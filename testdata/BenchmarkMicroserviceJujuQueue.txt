@@ -1,3 +1,13 @@
+Benchmark/0-4      	 5000000	       357 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       358 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       360 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       358 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       357 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       357 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       358 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       359 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       358 ns/op	    1184 B/op	       4 allocs/op
+Benchmark/0-4      	 5000000	       358 ns/op	    1184 B/op	       4 allocs/op
 Benchmark/1-4 	 2000000	       607 ns/op	    1296 B/op	      11 allocs/op
 Benchmark/1-4 	 2000000	       609 ns/op	    1296 B/op	      11 allocs/op
 Benchmark/1-4 	 2000000	       633 ns/op	    1296 B/op	      11 allocs/op
