@@ -319,12 +319,7 @@ func BenchmarkMicroserviceDequeStack(b *testing.B) {
 }
 
 func benchmarkMicroservice(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	for i, test := range tests {
-		// Doesn't run the first (0 items) as 0 items makes no sense for this test.
-		if i == 0 {
-			continue
-		}
-
+	for _, test := range tests {
 		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
 			for n := 0; n < b.N; n++ {
 				initInstance()
