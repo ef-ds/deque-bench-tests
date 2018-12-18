@@ -57,7 +57,7 @@ The test ranges are designed to test the queues with different loads. The tests 
 - 100000 items // 100k
 - 1000000 items // 1mi
 
-The 0 items test runs only for the [Fill](benchmark-fill_test.go) test and is designed to test the queues initialization time only.
+The 0 items test runs only for the [Fill](benchmark-fill_test.go) and [Microservice](benchmark-microservice_test.go) tests and is designed to test the queues initialization time only.
 
 
 ### Tests Type
