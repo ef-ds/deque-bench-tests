@@ -87,6 +87,8 @@ Besides deque, the tests also probe a few high quality open source queue impleme
 - [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go): the deque implemented in this package uses a circular slice of blocks to store the elements. Interesting to note the queue uses a block size of 4096, suggesting it is optimized for large data sets.
 - [juju](https://github.com/juju/utils/blob/master/deque/deque.go): the deque implemented in this package uses a doubly-linked list (list.List) of blocks. A quick [search for "deque"](https://godoc.org/?q=deque) on GoDoc.org shows this deque is by far the most imported of all deques there.
 
+We're actively looking for other, high quality queues to add to our tests. Due to the large volume of open source queues available, it is not possible to add all of them to the tests. However, all the new tested ones we're adding to this [issue](https://github.com/ef-ds/deque/issues/10).
+
 
 ## Results
 
