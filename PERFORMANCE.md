@@ -471,7 +471,7 @@ name        old allocs/op  new allocs/op  delta
 
 
 ### Other Test Results
-#### deque vs impl7 - FIFO queue
+#### deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue
 deque vs impl7 - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillImpl7Queue.txt
@@ -655,7 +655,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.02M ± 0%    +1.56%  (p=0.000 n=10+10)
 ```
 
-#### deque vs list - FIFO queue
+#### deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - FIFO queue
 deque vs list - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillListQueue.txt
@@ -839,7 +839,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     2.00M ± 0%  +100.00%  (p=0.000 n=10+10)
 ```
 
-#### deque vs list - LIFO stack
+#### deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - LIFO stack
 deque vs list - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillListStack.txt
@@ -1023,8 +1023,8 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     2.00M ± 0%  +100.00%  (p=0.000 n=10+10)
 ```
 
-#### deque vs slice - FIFO queue
-deque vs slice - FIFO queue - [fill tests](benchmark-fill_test.go)
+#### deque vs [CustomSliceQueue](testdata_test.go) - FIFO queue
+deque vs CustomSliceQueue - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillSliceQueue.txt
 name        old time/op    new time/op    delta
@@ -1058,7 +1058,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.01M ± 0%     1.00M ± 0%    -0.77%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - FIFO queue - [refill tests](benchmark-refill_test.go)
+deque vs CustomSliceQueue - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
 benchstat testdata/BenchmarkRefillDequeQueuev1.0.3.txt testdata/BenchmarkRefillSliceQueue.txt
 name       old time/op    new time/op    delta
@@ -1086,7 +1086,7 @@ name       old allocs/op  new allocs/op  delta
 /100000-4     10.1M ± 0%     10.0M ± 0%    -0.76%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
+deque vs CustomSliceQueue - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
 benchstat testdata/BenchmarkRefillFullDequeQueuev1.0.3.txt testdata/BenchmarkRefillFullSliceQueue.txt
 name       old time/op    new time/op    delta
@@ -1114,7 +1114,7 @@ name       old allocs/op  new allocs/op  delta
 /100000-4     10.1M ± 0%     10.0M ± 0%    -0.76%  (p=0.000 n=10+9)
 ```
 
-deque vs slice - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
+deque vs CustomSliceQueue - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
 benchstat testdata/BenchmarkSlowIncreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowIncreaseSliceQueue.txt
 name        old time/op    new time/op    delta
@@ -1145,7 +1145,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     2.01M ± 0%     2.00M ± 0%    -0.39%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
+deque vs CustomSliceQueue - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
 benchstat testdata/BenchmarkSlowDecreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowDecreaseSliceQueue.txt
 name        old time/op    new time/op    delta
@@ -1176,7 +1176,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     2.00M ± 0%  +100.00%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - FIFO queue - [stable tests](benchmark-stable_test.go)
+deque vs CustomSliceQueue - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
 benchstat testdata/BenchmarkStableDequeQueuev1.0.3.txt testdata/BenchmarkStableSliceQueue.txt
 name        old time/op    new time/op    delta
@@ -1207,8 +1207,8 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%    +0.03%  (p=0.000 n=10+10)
 ```
 
-#### deque vs slice - LIFO stack
-deque vs slice - LIFO stack - [fill tests](benchmark-fill_test.go)
+#### deque vs [CustomSliceQueue](testdata_test.go) - LIFO stack
+deque vs CustomSliceQueue - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillSliceStack.txt
 name        old time/op    new time/op    delta
@@ -1242,7 +1242,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.01M ± 0%     1.00M ± 0%    -0.77%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - LIFO stack - [refill tests](benchmark-refill_test.go)
+deque vs CustomSliceQueue - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
 benchstat testdata/BenchmarkRefillDequeStackv1.0.3.txt testdata/BenchmarkRefillSliceStack.txt
 name       old time/op    new time/op    delta
@@ -1270,7 +1270,7 @@ name       old allocs/op  new allocs/op  delta
 /100000-4     10.1M ± 0%     10.0M ± 0%   -0.77%  (p=0.000 n=9+8)
 ```
 
-deque vs slice - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
+deque vs CustomSliceQueue - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
 benchstat testdata/BenchmarkRefillFullDequeStackv1.0.3.txt testdata/BenchmarkRefillFullSliceStack.txt
 name       old time/op    new time/op    delta
@@ -1298,7 +1298,7 @@ name       old allocs/op  new allocs/op  delta
 /100000-4     10.1M ± 0%     10.0M ± 0%   -0.77%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
+deque vs CustomSliceQueue - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
 benchstat testdata/BenchmarkSlowIncreaseDequeStackv1.0.3.txt testdata/BenchmarkSlowIncreaseSliceStack.txt
 name        old time/op    new time/op    delta
@@ -1329,7 +1329,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     2.01M ± 0%     2.00M ± 0%   -0.39%  (p=0.000 n=10+10)
 ```
 
-deque vs slice - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
+deque vs CustomSliceQueue - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
 benchstat testdata/BenchmarkSlowDecreaseDequeStackv1.0.3.txt testdata/BenchmarkSlowDecreaseSliceStack.txt
 name        old time/op    new time/op    delta
@@ -1360,7 +1360,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
 ```
 
-deque vs slice - LIFO stack - [stable tests](benchmark-stable_test.go)
+deque vs CustomSliceQueue - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
 benchstat testdata/BenchmarkStableDequeStackv1.0.3.txt testdata/BenchmarkStableSliceStack.txt
 name        old time/op    new time/op    delta
@@ -1391,7 +1391,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
 ```
 
-#### deque vs phf - FIFO queue
+#### deque vs [phf](https://github.com/phf/go-queue) - FIFO queue
 deque vs phf - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillPhfQueue.txt
@@ -1575,7 +1575,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%    ~     (all equal)
 ```
 
-#### deque vs phf - LIFO stack
+#### deque vs [phf](https://github.com/phf/go-queue) - LIFO stack
 deque vs phf - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillPhfStack.txt
@@ -1759,7 +1759,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
 ```
 
-#### deque vs gammazero - FIFO queue
+#### deque vs [gammazero](https://github.com/gammazero/deque) - FIFO queue
 deque vs gammazero - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillGammazeroQueue.txt
@@ -1943,7 +1943,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%    ~     (all equal)
 ```
 
-#### deque vs gammazero - LIFO stack
+#### deque vs [gammazero](https://github.com/gammazero/deque) - LIFO stack
 deque vs gammazero - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillGammazeroStack.txt
@@ -2127,7 +2127,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%   ~     (all equal)
 ```
 
-#### deque vs Juju - FIFO queue
+#### deque vs [juju](https://github.com/juju/utils/blob/master/deque/deque.go) - FIFO queue
 deque vs juju - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillJujuQueue.txt
@@ -2311,7 +2311,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.05M ± 0%    +4.69%  (p=0.000 n=10+10)
 ```
 
-#### deque vs juju - LIFO stack
+#### deque vs [juju](https://github.com/juju/utils/blob/master/deque/deque.go) - LIFO stack
 deque vs juju - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillJujuStack.txt
@@ -2495,7 +2495,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
 ```
 
-#### deque vs cookiejar - FIFO queue
+#### deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - FIFO queue
 deque vs cookiejar - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeQueuev1.0.3.txt testdata/BenchmarkFillCookiejarQueue.txt
@@ -2679,7 +2679,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
 ```
 
-#### deque vs cookiejar - LIFO stack
+#### deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - LIFO stack
 deque vs cookiejar - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
 benchstat testdata/BenchmarkFillDequeStackv1.0.3.txt testdata/BenchmarkFillCookiejarStack.txt
