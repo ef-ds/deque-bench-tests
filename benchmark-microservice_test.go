@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkMicroserviceListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkMicroserviceListQueue(b *testing.B) {
 
 func BenchmarkMicroserviceListStack(b *testing.B) {
 	var l *list.List
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkMicroserviceListStack(b *testing.B) {
 
 func BenchmarkMicroserviceSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkMicroserviceSliceQueue(b *testing.B) {
 
 func BenchmarkMicroserviceSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkMicroserviceSliceStack(b *testing.B) {
 
 func BenchmarkMicroserviceGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkMicroserviceGammazeroQueue(b *testing.B) {
 
 func BenchmarkMicroserviceGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkMicroserviceGammazeroStack(b *testing.B) {
 
 func BenchmarkMicroservicePhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkMicroservicePhfQueue(b *testing.B) {
 
 func BenchmarkMicroservicePhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkMicroservicePhfStack(b *testing.B) {
 
 func BenchmarkMicroserviceCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkMicroserviceCookiejarQueue(b *testing.B) {
 
 func BenchmarkMicroserviceCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkMicroserviceCookiejarStack(b *testing.B) {
 
 func BenchmarkMicroserviceJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkMicroserviceJujuQueue(b *testing.B) {
 
 func BenchmarkMicroserviceJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkMicroserviceJujuStack(b *testing.B) {
 
 func BenchmarkMicroserviceImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkMicroserviceImpl7Queue(b *testing.B) {
 
 func BenchmarkMicroserviceDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkMicroserviceDequeQueue(b *testing.B) {
 
 func BenchmarkMicroserviceDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkMicroservice(
+	tests.Microservice(
 		b,
 		func() {
 			q = deque.New()
@@ -316,58 +316,4 @@ func BenchmarkMicroserviceDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkMicroservice(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	for _, test := range tests {
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				initInstance()
-
-				// Simulate stable traffic
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					pop()
-				}
-
-				// Simulate slowly increasing traffic
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					push(getTestValue(i))
-					pop()
-				}
-
-				// Simulate slowly decreasing traffic, bringing traffic back to normal
-				for i := 0; i < test.count; i++ {
-					pop()
-					if !empty() {
-						pop()
-					}
-					push(getTestValue(i))
-				}
-
-				// Simulate quick traffic spike (DDOS attack, etc)
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-				}
-
-				// Simulate stable traffic while at high traffic
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					pop()
-				}
-
-				// Simulate going back to normal (DDOS attack fended off)
-				for i := 0; i < test.count; i++ {
-					pop()
-				}
-
-				// Simulate stable traffic (now that is back to normal)
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					pop()
-				}
-			}
-		})
-	}
 }

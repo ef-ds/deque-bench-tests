@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkSlowIncreaseListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkSlowIncreaseListQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseListStack(b *testing.B) {
 	var l *list.List
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkSlowIncreaseListStack(b *testing.B) {
 
 func BenchmarkSlowIncreaseSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkSlowIncreaseSliceQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkSlowIncreaseSliceStack(b *testing.B) {
 
 func BenchmarkSlowIncreaseGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkSlowIncreaseGammazeroQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkSlowIncreaseGammazeroStack(b *testing.B) {
 
 func BenchmarkSlowIncreasePhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkSlowIncreasePhfQueue(b *testing.B) {
 
 func BenchmarkSlowIncreasePhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkSlowIncreasePhfStack(b *testing.B) {
 
 func BenchmarkSlowIncreaseCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkSlowIncreaseCookiejarQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkSlowIncreaseCookiejarStack(b *testing.B) {
 
 func BenchmarkSlowIncreaseJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkSlowIncreaseJujuQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkSlowIncreaseJujuStack(b *testing.B) {
 
 func BenchmarkSlowIncreaseImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkSlowIncreaseImpl7Queue(b *testing.B) {
 
 func BenchmarkSlowIncreaseDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkSlowIncreaseDequeQueue(b *testing.B) {
 
 func BenchmarkSlowIncreaseDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkSlowIncrease(
+	tests.SlowIncrease(
 		b,
 		func() {
 			q = deque.New()
@@ -316,27 +316,4 @@ func BenchmarkSlowIncreaseDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkSlowIncrease(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	for i, test := range tests {
-		// Doesn't run the first (0 items) test as 0 items makes no sense for this test.
-		if i == 0 {
-			continue
-		}
-
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				initInstance()
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					push(getTestValue(i))
-					tmp, tmp2 = pop()
-				}
-				for !empty() {
-					tmp, tmp2 = pop()
-				}
-			}
-		})
-	}
 }

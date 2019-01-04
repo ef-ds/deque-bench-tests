@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkRefillFullListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkRefillFullListQueue(b *testing.B) {
 
 func BenchmarkRefillFullListStack(b *testing.B) {
 	var l *list.List
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkRefillFullListStack(b *testing.B) {
 
 func BenchmarkRefillFullSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkRefillFullSliceQueue(b *testing.B) {
 
 func BenchmarkRefillFullSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkRefillFullSliceStack(b *testing.B) {
 
 func BenchmarkRefillFullGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkRefillFullGammazeroQueue(b *testing.B) {
 
 func BenchmarkRefillFullGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkRefillFullGammazeroStack(b *testing.B) {
 
 func BenchmarkRefillFullPhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkRefillFullPhfQueue(b *testing.B) {
 
 func BenchmarkRefillFullPhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkRefillFullPhfStack(b *testing.B) {
 
 func BenchmarkRefillFullCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkRefillFullCookiejarQueue(b *testing.B) {
 
 func BenchmarkRefillFullCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkRefillFullCookiejarStack(b *testing.B) {
 
 func BenchmarkRefillFullJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkRefillFullJujuQueue(b *testing.B) {
 
 func BenchmarkRefillFullJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkRefillFullJujuStack(b *testing.B) {
 
 func BenchmarkRefillFullImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkRefillFullImpl7Queue(b *testing.B) {
 
 func BenchmarkRefillFullDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkRefillFullDequeQueue(b *testing.B) {
 
 func BenchmarkRefillFullDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkRefillFull(
+	tests.RefillFull(
 		b,
 		func() {
 			q = deque.New()
@@ -316,36 +316,4 @@ func BenchmarkRefillFullDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkRefillFull(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	initInstance()
-	for i := 0; i < fillCount; i++ {
-		push(getTestValue(i))
-	}
-
-	for i, test := range tests {
-		// Doesn't run the first (0 items) and last (1mi) items tests
-		// as 0 items makes no sense for this test and 1mi is too slow.
-		if i == 0 || i > 6 {
-			continue
-		}
-
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				for k := 0; k < refillCount; k++ {
-					for i := 0; i < test.count; i++ {
-						push(getTestValue(i))
-					}
-					for i := 0; i < test.count; i++ {
-						tmp, tmp2 = pop()
-					}
-				}
-			}
-		})
-	}
-
-	for !empty() {
-		tmp, tmp2 = pop()
-	}
 }

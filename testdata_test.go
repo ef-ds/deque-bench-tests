@@ -20,31 +20,10 @@
 
 package deque_test
 
-// testData contains the number of items to add to the queues in each test.
-type testData struct {
-	count int
-}
-
-// testValue is used as the value added in each push call to the queues.
-// A struct is being used as structs should be more representative of real
-// world uses of a queue. A second f2 field was added as the users structs
-// are likely to contain more than one field.
-type testValue struct {
-	count int
-	f2    int
-}
+import "github.com/ef-ds/benchmark"
 
 var (
-	tests = []testData{
-		{count: 0},
-		{count: 1},
-		{count: 10},
-		{count: 100},
-		{count: 1000},    // 1k
-		{count: 10000},   //10k
-		{count: 100000},  // 100k
-		{count: 1000000}, // 1mi
-	}
+	tests benchmark.Benchmark
 
 	// Used to store temp values, avoiding any compiler optimizations.
 	tmp  interface{}
@@ -60,7 +39,7 @@ var (
 // to operate on testVale struct.
 type CustomSliceQueue struct {
 	// The queue values.
-	v []*testValue
+	v []*benchmark.TestValue
 }
 
 func NewCustomSliceQueue() *CustomSliceQueue {
@@ -68,37 +47,37 @@ func NewCustomSliceQueue() *CustomSliceQueue {
 }
 
 func (q *CustomSliceQueue) Init() *CustomSliceQueue {
-	q.v = make([]*testValue, 0)
+	q.v = make([]*benchmark.TestValue, 0)
 	return q
 }
 
 func (q *CustomSliceQueue) Len() int { return len(q.v) }
 
-func (q *CustomSliceQueue) Front() (*testValue, bool) {
+func (q *CustomSliceQueue) Front() (*benchmark.TestValue, bool) {
 	if len(q.v) == 0 {
 		return nil, false
 	}
 	return q.v[0], true
 }
 
-func (q *CustomSliceQueue) Back() (*testValue, bool) {
+func (q *CustomSliceQueue) Back() (*benchmark.TestValue, bool) {
 	if len(q.v) == 0 {
 		return nil, false
 	}
 	return q.v[len(q.v)-1], true
 }
 
-func (q *CustomSliceQueue) PushFront(v *testValue) {
+func (q *CustomSliceQueue) PushFront(v *benchmark.TestValue) {
 	q.v = append(q.v, v)
 	copy(q.v[1:], q.v[0:])
 	q.v[0] = v
 }
 
-func (q *CustomSliceQueue) PushBack(v *testValue) {
+func (q *CustomSliceQueue) PushBack(v *benchmark.TestValue) {
 	q.v = append(q.v, v)
 }
 
-func (q *CustomSliceQueue) PopFront() (*testValue, bool) {
+func (q *CustomSliceQueue) PopFront() (*benchmark.TestValue, bool) {
 	if len(q.v) == 0 {
 		return nil, false
 	}
@@ -109,7 +88,7 @@ func (q *CustomSliceQueue) PopFront() (*testValue, bool) {
 	return v, true
 }
 
-func (q *CustomSliceQueue) PopBack() (*testValue, bool) {
+func (q *CustomSliceQueue) PopBack() (*benchmark.TestValue, bool) {
 	if len(q.v) == 0 {
 		return nil, false
 	}
@@ -119,13 +98,4 @@ func (q *CustomSliceQueue) PopBack() (*testValue, bool) {
 	q.v[tp] = nil // Avoid memory leaks
 	q.v = q.v[:tp]
 	return v, true
-}
-
-// Helper methods-----------------------------------------------------------------------------------
-
-func getTestValue(i int) *testValue {
-	return &testValue{
-		count: i,
-		f2:    1, // Initializes f2 to some random value (1).
-	}
 }

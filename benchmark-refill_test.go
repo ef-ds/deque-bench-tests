@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkRefillListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkRefillListQueue(b *testing.B) {
 
 func BenchmarkRefillListStack(b *testing.B) {
 	var l *list.List
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkRefillListStack(b *testing.B) {
 
 func BenchmarkRefillSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkRefillSliceQueue(b *testing.B) {
 
 func BenchmarkRefillSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkRefillSliceStack(b *testing.B) {
 
 func BenchmarkRefillGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkRefillGammazeroQueue(b *testing.B) {
 
 func BenchmarkRefillGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkRefillGammazeroStack(b *testing.B) {
 
 func BenchmarkRefillPhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkRefillPhfQueue(b *testing.B) {
 
 func BenchmarkRefillPhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkRefillPhfStack(b *testing.B) {
 
 func BenchmarkRefillCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkRefillCookiejarQueue(b *testing.B) {
 
 func BenchmarkRefillCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkRefillCookiejarStack(b *testing.B) {
 
 func BenchmarkRefillJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkRefillJujuQueue(b *testing.B) {
 
 func BenchmarkRefillJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkRefillJujuStack(b *testing.B) {
 
 func BenchmarkRefillImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkRefillImpl7Queue(b *testing.B) {
 
 func BenchmarkRefillDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkRefillDequeQueue(b *testing.B) {
 
 func BenchmarkRefillDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkRefill(
+	tests.Refill(
 		b,
 		func() {
 			q = deque.New()
@@ -316,28 +316,4 @@ func BenchmarkRefillDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkRefill(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	for i, test := range tests {
-		// Doesn't run the first (0 items) and last (1mi) items tests
-		// as 0 items makes no sense for this test and 1mi is too slow.
-		if i == 0 || i > 6 {
-			continue
-		}
-
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			initInstance()
-			for n := 0; n < b.N; n++ {
-				for n := 0; n < refillCount; n++ {
-					for i := 0; i < test.count; i++ {
-						push(getTestValue(i))
-					}
-					for !empty() {
-						tmp, tmp2 = pop()
-					}
-				}
-			}
-		})
-	}
 }

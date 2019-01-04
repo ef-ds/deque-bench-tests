@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkStableListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkStableListQueue(b *testing.B) {
 
 func BenchmarkStableListStack(b *testing.B) {
 	var l *list.List
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkStableListStack(b *testing.B) {
 
 func BenchmarkStableSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkStableSliceQueue(b *testing.B) {
 
 func BenchmarkStableSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkStableSliceStack(b *testing.B) {
 
 func BenchmarkStableGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkStableGammazeroQueue(b *testing.B) {
 
 func BenchmarkStableGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkStableGammazeroStack(b *testing.B) {
 
 func BenchmarkStablePhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkStablePhfQueue(b *testing.B) {
 
 func BenchmarkStablePhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkStablePhfStack(b *testing.B) {
 
 func BenchmarkStableCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkStableCookiejarQueue(b *testing.B) {
 
 func BenchmarkStableCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkStableCookiejarStack(b *testing.B) {
 
 func BenchmarkStableJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkStableJujuQueue(b *testing.B) {
 
 func BenchmarkStableJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkStableJujuStack(b *testing.B) {
 
 func BenchmarkStableImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkStableImpl7Queue(b *testing.B) {
 
 func BenchmarkStableDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkStableDequeQueue(b *testing.B) {
 
 func BenchmarkStableDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkStable(
+	tests.Stable(
 		b,
 		func() {
 			q = deque.New()
@@ -316,32 +316,4 @@ func BenchmarkStableDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkStable(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	initInstance()
-	for i := 0; i < fillCount; i++ {
-		push(getTestValue(i))
-	}
-
-	for i, test := range tests {
-		// Doesn't run the first (0 items) test as 0 items makes no sense for this test.
-		if i == 0 {
-			continue
-		}
-
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-					tmp, tmp2 = pop()
-				}
-
-			}
-		})
-	}
-
-	for !empty() {
-		tmp, tmp2 = pop()
-	}
 }

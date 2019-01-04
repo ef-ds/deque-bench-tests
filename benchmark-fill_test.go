@@ -22,10 +22,10 @@ package deque_test
 
 import (
 	"container/list"
-	"strconv"
 	"testing"
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
+	"github.com/ef-ds/benchmark"
 	"github.com/ef-ds/deque"
 	gammazero "github.com/gammazero/deque"
 	juju "github.com/juju/utils/deque"
@@ -35,7 +35,7 @@ import (
 
 func BenchmarkFillListQueue(b *testing.B) {
 	var l *list.List
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			l = list.New()
@@ -54,7 +54,7 @@ func BenchmarkFillListQueue(b *testing.B) {
 
 func BenchmarkFillListStack(b *testing.B) {
 	var l *list.List
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			l = list.New()
@@ -73,13 +73,13 @@ func BenchmarkFillListStack(b *testing.B) {
 
 func BenchmarkFillSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopFront()
@@ -92,13 +92,13 @@ func BenchmarkFillSliceQueue(b *testing.B) {
 
 func BenchmarkFillSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
 		func(v interface{}) {
-			q.PushBack(v.(*testValue))
+			q.PushBack(v.(*benchmark.TestValue))
 		},
 		func() (interface{}, bool) {
 			return q.PopBack()
@@ -111,7 +111,7 @@ func BenchmarkFillSliceStack(b *testing.B) {
 
 func BenchmarkFillGammazeroQueue(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -130,7 +130,7 @@ func BenchmarkFillGammazeroQueue(b *testing.B) {
 
 func BenchmarkFillGammazeroStack(b *testing.B) {
 	var q *gammazero.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = new(gammazero.Deque)
@@ -149,7 +149,7 @@ func BenchmarkFillGammazeroStack(b *testing.B) {
 
 func BenchmarkFillPhfQueue(b *testing.B) {
 	var q *phf.Queue
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = phf.New()
@@ -168,7 +168,7 @@ func BenchmarkFillPhfQueue(b *testing.B) {
 
 func BenchmarkFillPhfStack(b *testing.B) {
 	var q *phf.Queue
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = phf.New()
@@ -187,7 +187,7 @@ func BenchmarkFillPhfStack(b *testing.B) {
 
 func BenchmarkFillCookiejarQueue(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -206,7 +206,7 @@ func BenchmarkFillCookiejarQueue(b *testing.B) {
 
 func BenchmarkFillCookiejarStack(b *testing.B) {
 	var q *cookiejar.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = cookiejar.New()
@@ -225,7 +225,7 @@ func BenchmarkFillCookiejarStack(b *testing.B) {
 
 func BenchmarkFillJujuQueue(b *testing.B) {
 	var q *juju.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = juju.New()
@@ -244,7 +244,7 @@ func BenchmarkFillJujuQueue(b *testing.B) {
 
 func BenchmarkFillJujuStack(b *testing.B) {
 	var q *juju.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = juju.New()
@@ -263,7 +263,7 @@ func BenchmarkFillJujuStack(b *testing.B) {
 
 func BenchmarkFillImpl7Queue(b *testing.B) {
 	var q *queueimpl7.Queueimpl7
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = queueimpl7.New()
@@ -282,7 +282,7 @@ func BenchmarkFillImpl7Queue(b *testing.B) {
 
 func BenchmarkFillDequeQueue(b *testing.B) {
 	var q *deque.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = deque.New()
@@ -301,7 +301,7 @@ func BenchmarkFillDequeQueue(b *testing.B) {
 
 func BenchmarkFillDequeStack(b *testing.B) {
 	var q *deque.Deque
-	benchmarkFill(
+	tests.Fill(
 		b,
 		func() {
 			q = deque.New()
@@ -316,20 +316,4 @@ func BenchmarkFillDequeStack(b *testing.B) {
 			return q.Len() == 0
 		},
 	)
-}
-
-func benchmarkFill(b *testing.B, initInstance func(), push func(v interface{}), pop func() (interface{}, bool), empty func() bool) {
-	for _, test := range tests {
-		b.Run(strconv.Itoa(test.count), func(b *testing.B) {
-			for n := 0; n < b.N; n++ {
-				initInstance()
-				for i := 0; i < test.count; i++ {
-					push(getTestValue(i))
-				}
-				for !empty() {
-					tmp, tmp2 = pop()
-				}
-			}
-		})
-	}
 }
