@@ -26,6 +26,20 @@ Besides deque, the tests also probe a few high quality open source queue impleme
 We're actively looking for other, high quality queues to add to our tests. Due to the large volume of open source queues available, it is not possible to add all of them to the tests. However, all the new tested ones we're adding to this [issue](https://github.com/ef-ds/deque/issues/10).
 
 
+### Efficient Data Structures deque vs stack
+
+Efficient Data Structures implements this deque package as well as the [stack](https://github.com/ef-ds/stack) package which can also be used as a LIFO stack.
+
+The stack implementated in the stack package is a simplified version of this deque package. When it comes to using the packages as a LIFO stack, the main differences are:
+
+1) Stack is a simpler version of deque that performs better and is more efficient than deque on most, if not all, LIFO stack tests
+2) Differently from deque, stack doesn't release the arrays from memory as the items are poppoed off from the data structure
+
+The fact that stack doesn't release the extra arrays from memory as the items are popped off gives the stack a full sized
+buffer for refill scenarios. This means stack will be faster and more efficient, but also means stack will hold on to extra memory after heavy use when compared to deque.
+
+
+
 ## Results
 
 The raw results of a local run are stored under the [testdata](testdata) directory.
