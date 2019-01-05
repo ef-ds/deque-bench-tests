@@ -23,14 +23,7 @@ package deque_test
 import "github.com/ef-ds/benchmark"
 
 var (
-	tests benchmark.Benchmark
-
-	// Used to store temp values, avoiding any compiler optimizations.
-	tmp  interface{}
-	tmp2 bool
-
-	fillCount   = 10000
-	refillCount = 100
+	tests benchmark.Tests
 )
 
 // Pure slice based test queue implementation-------------------------------------------------------
