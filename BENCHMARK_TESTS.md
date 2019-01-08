@@ -30,13 +30,10 @@ We're actively looking for other, high quality queues to add to our tests. Due t
 
 Efficient Data Structures implements this deque package as well as the [stack](https://github.com/ef-ds/stack) package which can also be used as a LIFO stack.
 
-The stack implementated in the stack package is a simplified version of this deque package. When it comes to using the packages as a LIFO stack, the main differences are:
+The stack package is a simplified version of this deque package. When it comes to using the packages as a LIFO stack, the main differences are:
 
-1) Stack is a simpler version of deque that performs better and is more efficient than deque on most, if not all, LIFO stack tests
-2) Differently from deque, stack doesn't release the arrays from memory as the items are poppoed off from the data structure
-
-The fact that stack doesn't release the extra arrays from memory as the items are popped off gives the stack a full sized
-buffer for refill scenarios. This means stack will be faster and more efficient, but also means stack will hold on to extra memory after heavy use when compared to deque.
+1) Stack is a simpler version of deque that performs better than deque on most, if not all, LIFO stack tests
+2) Differently from deque which attempts to reuse slices, stack doesn't implement such logic making it faster, especially for small data sets, but also causes more allocations for larger data sets (but with similar performance)
 
 
 
