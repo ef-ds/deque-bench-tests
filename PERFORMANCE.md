@@ -19,9 +19,7 @@ As a general purpose double-ended queue, deque is the queue that displays the mo
 
 
 ## Results
-
-Given the enormous amount of test data, it can be difficult and time consuming to find out the net impact of all the tests,
-so we generally spend most of the time on the results of the very simple fill tests, which sequentially add and remove N number of items, and the Microservice test, which is a composite test of all other tests.
+Given the enormous amount of test data, it can be difficult and time consuming to find out the net impact of all the tests, so we generally spend most of the time on the results of the very simple fill tests, which sequentially add and remove N number of items, and the Microservice test, which is a composite test of all other tests.
 
 Below results is for deque [v1.0.3](https://github.com/ef-ds/deque/blob/master/CHANGELOG.md).
 
@@ -607,6 +605,7 @@ name        old allocs/op  new allocs/op  delta
 /100000-4       702k ± 0%      700k ± 0%   -0.22%  (p=0.000 n=10+10)
 /1000000-4     7.02M ± 0%     7.00M ± 0%   -0.22%  (p=0.000 n=10+10)
 ```
+
 deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
 benchstat testdata/BenchmarkMicroserviceDequeQueuev1.0.3.txt testdata/BenchmarkMicroserviceImpl7Queue.txt
@@ -913,159 +912,7 @@ name        old allocs/op  new allocs/op  delta
 /1000000-4     7.02M ± 0%     7.00M ± 0%       -0.22%  (p=0.000 n=10+10)
 ```
 
-
-
 ### Other Test Results
-#### deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue
-deque vs impl7 - FIFO queue - [refill tests](benchmark-refill_test.go)
-```
-benchstat testdata/BenchmarkRefillDequeQueuev1.0.3.txt testdata/BenchmarkRefillImpl7Queue.txt
-name       old time/op    new time/op    delta
-/1-4         3.95µs ± 7%   10.03µs ± 6%  +153.77%  (p=0.000 n=10+10)
-/10-4        38.9µs ± 8%    74.7µs ± 5%   +92.18%  (p=0.000 n=10+10)
-/100-4        370µs ± 8%     442µs ± 4%   +19.23%  (p=0.000 n=10+10)
-/1000-4      3.85ms ±10%    3.97ms ± 3%      ~     (p=0.243 n=10+9)
-/10000-4     41.0ms ±12%    39.1ms ± 6%      ~     (p=0.315 n=10+10)
-/100000-4     438ms ± 7%     421ms ±24%      ~     (p=0.079 n=10+9)
-
-name       old alloc/op   new alloc/op   delta
-/1-4         1.60kB ± 0%    6.40kB ± 0%  +300.00%  (p=0.000 n=10+10)
-/10-4        16.0kB ± 0%    68.8kB ± 0%  +330.00%  (p=0.000 n=10+10)
-/100-4        160kB ± 0%     421kB ± 0%  +163.00%  (p=0.000 n=9+10)
-/1000-4      1.60MB ± 0%    3.32MB ± 0%  +107.29%  (p=0.000 n=10+10)
-/10000-4     30.1MB ± 0%    32.3MB ± 0%    +7.17%  (p=0.000 n=10+10)
-/100000-4     320MB ± 0%     323MB ± 0%    +0.90%  (p=0.000 n=9+8)
-
-name       old allocs/op  new allocs/op  delta
-/1-4            100 ± 0%       300 ± 0%  +200.00%  (p=0.000 n=10+10)
-/10-4         1.00k ± 0%     1.60k ± 0%   +60.00%  (p=0.000 n=10+10)
-/100-4        10.0k ± 0%     10.8k ± 0%    +8.00%  (p=0.000 n=10+10)
-/1000-4        100k ± 0%      102k ± 0%    +2.20%  (p=0.000 n=10+10)
-/10000-4      1.01M ± 0%     1.02M ± 0%    +0.93%  (p=0.000 n=10+10)
-/100000-4     10.1M ± 0%     10.2M ± 0%    +0.79%  (p=0.000 n=10+10)
-```
-
-deque vs impl7 - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
-```
-benchstat testdata/BenchmarkRefillFullDequeQueuev1.0.3.txt testdata/BenchmarkRefillFullImpl7Queue.txt
-name       old time/op    new time/op    delta
-/1-4         3.55µs ± 1%    4.24µs ± 4%   +19.45%  (p=0.000 n=9+10)
-/10-4        35.2µs ± 1%    43.3µs ±24%   +23.14%  (p=0.000 n=10+10)
-/100-4        344µs ± 1%     398µs ± 5%   +15.81%  (p=0.000 n=9+10)
-/1000-4      3.41ms ± 1%    4.01ms ± 7%   +17.55%  (p=0.000 n=10+10)
-/10000-4     40.6ms ±24%    39.9ms ± 7%      ~     (p=0.258 n=9+9)
-/100000-4     451ms ±15%     412ms ±15%    -8.65%  (p=0.011 n=10+10)
-
-name       old alloc/op   new alloc/op   delta
-/1-4         1.60kB ± 0%    3.23kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/10-4        16.0kB ± 0%    32.2kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/100-4        160kB ± 0%     322kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/1000-4      1.60MB ± 0%    3.23MB ± 0%  +101.56%  (p=0.000 n=10+10)
-/10000-4     30.1MB ± 0%    32.3MB ± 0%    +7.09%  (p=0.000 n=10+10)
-/100000-4     320MB ± 0%     322MB ± 0%    +0.84%  (p=0.000 n=9+8)
-
-name       old allocs/op  new allocs/op  delta
-/1-4            100 ± 0%       101 ± 0%    +1.00%  (p=0.000 n=10+10)
-/10-4         1.00k ± 0%     1.01k ± 0%    +1.50%  (p=0.000 n=10+10)
-/100-4        10.0k ± 0%     10.2k ± 0%    +1.56%  (p=0.000 n=10+10)
-/1000-4        100k ± 0%      102k ± 0%    +1.56%  (p=0.000 n=10+10)
-/10000-4      1.01M ± 0%     1.02M ± 0%    +0.88%  (p=0.000 n=10+10)
-/100000-4     10.1M ± 0%     10.2M ± 0%    +0.79%  (p=0.000 n=10+10)
-```
-
-deque vs impl7 - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
-```
-benchstat testdata/BenchmarkSlowIncreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowIncreaseImpl7Queue.txt
-name        old time/op    new time/op    delta
-/1-4           241ns ±14%     230ns ± 3%     ~     (p=0.138 n=10+10)
-/10-4         1.32µs ±10%    1.61µs ± 6%  +21.75%  (p=0.000 n=10+10)
-/100-4        9.07µs ±11%    7.87µs ± 2%  -13.30%  (p=0.000 n=10+9)
-/1000-4       78.2µs ±10%    71.5µs ± 1%   -8.59%  (p=0.008 n=10+9)
-/10000-4       805µs ± 7%     723µs ± 3%  -10.27%  (p=0.000 n=9+9)
-/100000-4     8.74ms ±12%    8.50ms ± 9%     ~     (p=0.579 n=10+10)
-/1000000-4    92.0ms ± 9%    93.4ms ± 4%     ~     (p=0.631 n=10+10)
-
-name        old alloc/op   new alloc/op   delta
-/1-4            208B ± 0%      160B ± 0%  -23.08%  (p=0.000 n=10+10)
-/10-4         1.78kB ± 0%    2.98kB ± 0%  +67.57%  (p=0.000 n=10+10)
-/100-4        8.80kB ± 0%    7.94kB ± 0%   -9.82%  (p=0.000 n=10+10)
-/1000-4       54.2kB ± 0%    65.9kB ± 0%  +21.56%  (p=0.000 n=10+10)
-/10000-4       487kB ± 0%     647kB ± 0%  +32.82%  (p=0.000 n=10+10)
-/100000-4     4.82MB ± 0%    6.45MB ± 0%  +33.80%  (p=0.000 n=10+10)
-/1000000-4    48.2MB ± 0%    64.5MB ± 0%  +33.84%  (p=0.000 n=10+10)
-
-name        old allocs/op  new allocs/op  delta
-/1-4            5.00 ± 0%      6.00 ± 0%  +20.00%  (p=0.000 n=10+10)
-/10-4           25.0 ± 0%      29.0 ± 0%  +16.00%  (p=0.000 n=10+10)
-/100-4           207 ± 0%       211 ± 0%   +1.93%  (p=0.000 n=10+10)
-/1000-4        2.02k ± 0%     2.04k ± 0%   +1.19%  (p=0.000 n=10+10)
-/10000-4       20.1k ± 0%     20.3k ± 0%   +1.18%  (p=0.000 n=10+10)
-/100000-4       201k ± 0%      203k ± 0%   +1.17%  (p=0.000 n=10+10)
-/1000000-4     2.01M ± 0%     2.03M ± 0%   +1.17%  (p=0.000 n=10+10)
-```
-
-deque vs impl7 - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
-```
-benchstat testdata/BenchmarkSlowDecreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowDecreaseImpl7Queue.txt
-name        old time/op    new time/op    delta
-/1-4          39.2ns ± 7%    99.0ns ±12%  +152.79%  (p=0.000 n=9+10)
-/10-4          391ns ±11%    1013ns ± 8%  +158.91%  (p=0.000 n=10+10)
-/100-4        3.71µs ± 8%    9.67µs ± 5%  +160.70%  (p=0.000 n=10+9)
-/1000-4       36.1µs ± 7%    93.4µs ± 3%  +158.71%  (p=0.000 n=10+8)
-/10000-4       375µs ±10%     983µs ±12%  +161.89%  (p=0.000 n=10+10)
-/100000-4     3.68ms ± 8%   10.70ms ±22%  +191.20%  (p=0.000 n=10+10)
-/1000000-4    37.0ms ± 9%    92.9ms ± 6%  +150.68%  (p=0.000 n=10+10)
-
-name        old alloc/op   new alloc/op   delta
-/1-4           16.0B ± 0%     64.0B ± 0%  +300.00%  (p=0.000 n=10+10)
-/10-4           160B ± 0%      640B ± 0%  +300.00%  (p=0.000 n=10+10)
-/100-4        1.60kB ± 0%    6.40kB ± 0%  +300.00%  (p=0.000 n=10+10)
-/1000-4       16.0kB ± 0%    64.0kB ± 0%  +300.00%  (p=0.000 n=10+10)
-/10000-4       160kB ± 0%     640kB ± 0%  +300.00%  (p=0.000 n=10+10)
-/100000-4     1.60MB ± 0%    6.40MB ± 0%  +300.00%  (p=0.000 n=10+10)
-/1000000-4    16.0MB ± 0%    64.0MB ± 0%  +300.00%  (p=0.000 n=8+9)
-
-name        old allocs/op  new allocs/op  delta
-/1-4            1.00 ± 0%      3.00 ± 0%  +200.00%  (p=0.000 n=10+10)
-/10-4           10.0 ± 0%      30.0 ± 0%  +200.00%  (p=0.000 n=10+10)
-/100-4           100 ± 0%       300 ± 0%  +200.00%  (p=0.000 n=10+10)
-/1000-4        1.00k ± 0%     3.00k ± 0%  +200.00%  (p=0.000 n=10+10)
-/10000-4       10.0k ± 0%     30.0k ± 0%  +200.00%  (p=0.000 n=10+10)
-/100000-4       100k ± 0%      300k ± 0%  +200.00%  (p=0.000 n=10+10)
-/1000000-4     1.00M ± 0%     3.00M ± 0%  +200.00%  (p=0.000 n=10+10)
-```
-
-deque vs impl7 - FIFO queue - [stable tests](benchmark-stable_test.go)
-```
-benchstat testdata/BenchmarkStableDequeQueuev1.0.3.txt testdata/BenchmarkStableImpl7Queue.txt
-name        old time/op    new time/op    delta
-/1-4          37.2ns ± 9%    38.1ns ± 5%      ~     (p=0.646 n=10+9)
-/10-4          369ns ± 8%     391ns ± 7%    +5.96%  (p=0.022 n=10+10)
-/100-4        3.52µs ± 8%    4.13µs ±19%   +17.30%  (p=0.000 n=10+10)
-/1000-4       36.9µs ± 7%    39.6µs ±12%    +7.55%  (p=0.008 n=9+10)
-/10000-4       353µs ± 9%     385µs ± 4%    +9.28%  (p=0.000 n=10+10)
-/100000-4     3.60ms ± 8%    3.85ms ±11%    +6.81%  (p=0.019 n=10+10)
-/1000000-4    35.5ms ± 7%    38.3ms ± 6%    +7.89%  (p=0.000 n=10+10)
-
-name        old alloc/op   new alloc/op   delta
-/1-4           16.0B ± 0%     32.0B ± 0%  +100.00%  (p=0.000 n=10+10)
-/10-4           160B ± 0%      322B ± 0%  +101.25%  (p=0.000 n=10+10)
-/100-4        1.60kB ± 0%    3.23kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/1000-4       16.0kB ± 0%    32.2kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/10000-4       160kB ± 0%     322kB ± 0%  +101.56%  (p=0.000 n=10+10)
-/100000-4     1.60MB ± 0%    3.23MB ± 0%  +101.56%  (p=0.000 n=10+10)
-/1000000-4    16.0MB ± 0%    32.3MB ± 0%  +101.56%  (p=0.000 n=10+10)
-
-name        old allocs/op  new allocs/op  delta
-/1-4            1.00 ± 0%      1.00 ± 0%      ~     (all equal)
-/10-4           10.0 ± 0%      10.0 ± 0%      ~     (all equal)
-/100-4           100 ± 0%       101 ± 0%    +1.00%  (p=0.000 n=10+10)
-/1000-4        1.00k ± 0%     1.01k ± 0%    +1.50%  (p=0.000 n=10+10)
-/10000-4       10.0k ± 0%     10.2k ± 0%    +1.56%  (p=0.000 n=10+10)
-/100000-4       100k ± 0%      102k ± 0%    +1.56%  (p=0.000 n=10+10)
-/1000000-4     1.00M ± 0%     1.02M ± 0%    +1.56%  (p=0.000 n=10+10)
-```
-
 #### deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - FIFO queue
 deque vs list - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
@@ -1664,6 +1511,156 @@ name        old allocs/op  new allocs/op  delta
 /10000-4       10.0k ± 0%     10.0k ± 0%     ~     (all equal)
 /100000-4       100k ± 0%      100k ± 0%     ~     (all equal)
 /1000000-4     1.00M ± 0%     1.00M ± 0%     ~     (all equal)
+```
+
+#### deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue
+deque vs impl7 - FIFO queue - [refill tests](benchmark-refill_test.go)
+```
+benchstat testdata/BenchmarkRefillDequeQueuev1.0.3.txt testdata/BenchmarkRefillImpl7Queue.txt
+name       old time/op    new time/op    delta
+/1-4         3.95µs ± 7%   10.03µs ± 6%  +153.77%  (p=0.000 n=10+10)
+/10-4        38.9µs ± 8%    74.7µs ± 5%   +92.18%  (p=0.000 n=10+10)
+/100-4        370µs ± 8%     442µs ± 4%   +19.23%  (p=0.000 n=10+10)
+/1000-4      3.85ms ±10%    3.97ms ± 3%      ~     (p=0.243 n=10+9)
+/10000-4     41.0ms ±12%    39.1ms ± 6%      ~     (p=0.315 n=10+10)
+/100000-4     438ms ± 7%     421ms ±24%      ~     (p=0.079 n=10+9)
+
+name       old alloc/op   new alloc/op   delta
+/1-4         1.60kB ± 0%    6.40kB ± 0%  +300.00%  (p=0.000 n=10+10)
+/10-4        16.0kB ± 0%    68.8kB ± 0%  +330.00%  (p=0.000 n=10+10)
+/100-4        160kB ± 0%     421kB ± 0%  +163.00%  (p=0.000 n=9+10)
+/1000-4      1.60MB ± 0%    3.32MB ± 0%  +107.29%  (p=0.000 n=10+10)
+/10000-4     30.1MB ± 0%    32.3MB ± 0%    +7.17%  (p=0.000 n=10+10)
+/100000-4     320MB ± 0%     323MB ± 0%    +0.90%  (p=0.000 n=9+8)
+
+name       old allocs/op  new allocs/op  delta
+/1-4            100 ± 0%       300 ± 0%  +200.00%  (p=0.000 n=10+10)
+/10-4         1.00k ± 0%     1.60k ± 0%   +60.00%  (p=0.000 n=10+10)
+/100-4        10.0k ± 0%     10.8k ± 0%    +8.00%  (p=0.000 n=10+10)
+/1000-4        100k ± 0%      102k ± 0%    +2.20%  (p=0.000 n=10+10)
+/10000-4      1.01M ± 0%     1.02M ± 0%    +0.93%  (p=0.000 n=10+10)
+/100000-4     10.1M ± 0%     10.2M ± 0%    +0.79%  (p=0.000 n=10+10)
+```
+
+deque vs impl7 - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
+```
+benchstat testdata/BenchmarkRefillFullDequeQueuev1.0.3.txt testdata/BenchmarkRefillFullImpl7Queue.txt
+name       old time/op    new time/op    delta
+/1-4         3.55µs ± 1%    4.24µs ± 4%   +19.45%  (p=0.000 n=9+10)
+/10-4        35.2µs ± 1%    43.3µs ±24%   +23.14%  (p=0.000 n=10+10)
+/100-4        344µs ± 1%     398µs ± 5%   +15.81%  (p=0.000 n=9+10)
+/1000-4      3.41ms ± 1%    4.01ms ± 7%   +17.55%  (p=0.000 n=10+10)
+/10000-4     40.6ms ±24%    39.9ms ± 7%      ~     (p=0.258 n=9+9)
+/100000-4     451ms ±15%     412ms ±15%    -8.65%  (p=0.011 n=10+10)
+
+name       old alloc/op   new alloc/op   delta
+/1-4         1.60kB ± 0%    3.23kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/10-4        16.0kB ± 0%    32.2kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/100-4        160kB ± 0%     322kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/1000-4      1.60MB ± 0%    3.23MB ± 0%  +101.56%  (p=0.000 n=10+10)
+/10000-4     30.1MB ± 0%    32.3MB ± 0%    +7.09%  (p=0.000 n=10+10)
+/100000-4     320MB ± 0%     322MB ± 0%    +0.84%  (p=0.000 n=9+8)
+
+name       old allocs/op  new allocs/op  delta
+/1-4            100 ± 0%       101 ± 0%    +1.00%  (p=0.000 n=10+10)
+/10-4         1.00k ± 0%     1.01k ± 0%    +1.50%  (p=0.000 n=10+10)
+/100-4        10.0k ± 0%     10.2k ± 0%    +1.56%  (p=0.000 n=10+10)
+/1000-4        100k ± 0%      102k ± 0%    +1.56%  (p=0.000 n=10+10)
+/10000-4      1.01M ± 0%     1.02M ± 0%    +0.88%  (p=0.000 n=10+10)
+/100000-4     10.1M ± 0%     10.2M ± 0%    +0.79%  (p=0.000 n=10+10)
+```
+
+deque vs impl7 - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
+```
+benchstat testdata/BenchmarkSlowIncreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowIncreaseImpl7Queue.txt
+name        old time/op    new time/op    delta
+/1-4           241ns ±14%     230ns ± 3%     ~     (p=0.138 n=10+10)
+/10-4         1.32µs ±10%    1.61µs ± 6%  +21.75%  (p=0.000 n=10+10)
+/100-4        9.07µs ±11%    7.87µs ± 2%  -13.30%  (p=0.000 n=10+9)
+/1000-4       78.2µs ±10%    71.5µs ± 1%   -8.59%  (p=0.008 n=10+9)
+/10000-4       805µs ± 7%     723µs ± 3%  -10.27%  (p=0.000 n=9+9)
+/100000-4     8.74ms ±12%    8.50ms ± 9%     ~     (p=0.579 n=10+10)
+/1000000-4    92.0ms ± 9%    93.4ms ± 4%     ~     (p=0.631 n=10+10)
+
+name        old alloc/op   new alloc/op   delta
+/1-4            208B ± 0%      160B ± 0%  -23.08%  (p=0.000 n=10+10)
+/10-4         1.78kB ± 0%    2.98kB ± 0%  +67.57%  (p=0.000 n=10+10)
+/100-4        8.80kB ± 0%    7.94kB ± 0%   -9.82%  (p=0.000 n=10+10)
+/1000-4       54.2kB ± 0%    65.9kB ± 0%  +21.56%  (p=0.000 n=10+10)
+/10000-4       487kB ± 0%     647kB ± 0%  +32.82%  (p=0.000 n=10+10)
+/100000-4     4.82MB ± 0%    6.45MB ± 0%  +33.80%  (p=0.000 n=10+10)
+/1000000-4    48.2MB ± 0%    64.5MB ± 0%  +33.84%  (p=0.000 n=10+10)
+
+name        old allocs/op  new allocs/op  delta
+/1-4            5.00 ± 0%      6.00 ± 0%  +20.00%  (p=0.000 n=10+10)
+/10-4           25.0 ± 0%      29.0 ± 0%  +16.00%  (p=0.000 n=10+10)
+/100-4           207 ± 0%       211 ± 0%   +1.93%  (p=0.000 n=10+10)
+/1000-4        2.02k ± 0%     2.04k ± 0%   +1.19%  (p=0.000 n=10+10)
+/10000-4       20.1k ± 0%     20.3k ± 0%   +1.18%  (p=0.000 n=10+10)
+/100000-4       201k ± 0%      203k ± 0%   +1.17%  (p=0.000 n=10+10)
+/1000000-4     2.01M ± 0%     2.03M ± 0%   +1.17%  (p=0.000 n=10+10)
+```
+
+deque vs impl7 - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
+```
+benchstat testdata/BenchmarkSlowDecreaseDequeQueuev1.0.3.txt testdata/BenchmarkSlowDecreaseImpl7Queue.txt
+name        old time/op    new time/op    delta
+/1-4          39.2ns ± 7%    99.0ns ±12%  +152.79%  (p=0.000 n=9+10)
+/10-4          391ns ±11%    1013ns ± 8%  +158.91%  (p=0.000 n=10+10)
+/100-4        3.71µs ± 8%    9.67µs ± 5%  +160.70%  (p=0.000 n=10+9)
+/1000-4       36.1µs ± 7%    93.4µs ± 3%  +158.71%  (p=0.000 n=10+8)
+/10000-4       375µs ±10%     983µs ±12%  +161.89%  (p=0.000 n=10+10)
+/100000-4     3.68ms ± 8%   10.70ms ±22%  +191.20%  (p=0.000 n=10+10)
+/1000000-4    37.0ms ± 9%    92.9ms ± 6%  +150.68%  (p=0.000 n=10+10)
+
+name        old alloc/op   new alloc/op   delta
+/1-4           16.0B ± 0%     64.0B ± 0%  +300.00%  (p=0.000 n=10+10)
+/10-4           160B ± 0%      640B ± 0%  +300.00%  (p=0.000 n=10+10)
+/100-4        1.60kB ± 0%    6.40kB ± 0%  +300.00%  (p=0.000 n=10+10)
+/1000-4       16.0kB ± 0%    64.0kB ± 0%  +300.00%  (p=0.000 n=10+10)
+/10000-4       160kB ± 0%     640kB ± 0%  +300.00%  (p=0.000 n=10+10)
+/100000-4     1.60MB ± 0%    6.40MB ± 0%  +300.00%  (p=0.000 n=10+10)
+/1000000-4    16.0MB ± 0%    64.0MB ± 0%  +300.00%  (p=0.000 n=8+9)
+
+name        old allocs/op  new allocs/op  delta
+/1-4            1.00 ± 0%      3.00 ± 0%  +200.00%  (p=0.000 n=10+10)
+/10-4           10.0 ± 0%      30.0 ± 0%  +200.00%  (p=0.000 n=10+10)
+/100-4           100 ± 0%       300 ± 0%  +200.00%  (p=0.000 n=10+10)
+/1000-4        1.00k ± 0%     3.00k ± 0%  +200.00%  (p=0.000 n=10+10)
+/10000-4       10.0k ± 0%     30.0k ± 0%  +200.00%  (p=0.000 n=10+10)
+/100000-4       100k ± 0%      300k ± 0%  +200.00%  (p=0.000 n=10+10)
+/1000000-4     1.00M ± 0%     3.00M ± 0%  +200.00%  (p=0.000 n=10+10)
+```
+
+deque vs impl7 - FIFO queue - [stable tests](benchmark-stable_test.go)
+```
+benchstat testdata/BenchmarkStableDequeQueuev1.0.3.txt testdata/BenchmarkStableImpl7Queue.txt
+name        old time/op    new time/op    delta
+/1-4          37.2ns ± 9%    38.1ns ± 5%      ~     (p=0.646 n=10+9)
+/10-4          369ns ± 8%     391ns ± 7%    +5.96%  (p=0.022 n=10+10)
+/100-4        3.52µs ± 8%    4.13µs ±19%   +17.30%  (p=0.000 n=10+10)
+/1000-4       36.9µs ± 7%    39.6µs ±12%    +7.55%  (p=0.008 n=9+10)
+/10000-4       353µs ± 9%     385µs ± 4%    +9.28%  (p=0.000 n=10+10)
+/100000-4     3.60ms ± 8%    3.85ms ±11%    +6.81%  (p=0.019 n=10+10)
+/1000000-4    35.5ms ± 7%    38.3ms ± 6%    +7.89%  (p=0.000 n=10+10)
+
+name        old alloc/op   new alloc/op   delta
+/1-4           16.0B ± 0%     32.0B ± 0%  +100.00%  (p=0.000 n=10+10)
+/10-4           160B ± 0%      322B ± 0%  +101.25%  (p=0.000 n=10+10)
+/100-4        1.60kB ± 0%    3.23kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/1000-4       16.0kB ± 0%    32.2kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/10000-4       160kB ± 0%     322kB ± 0%  +101.56%  (p=0.000 n=10+10)
+/100000-4     1.60MB ± 0%    3.23MB ± 0%  +101.56%  (p=0.000 n=10+10)
+/1000000-4    16.0MB ± 0%    32.3MB ± 0%  +101.56%  (p=0.000 n=10+10)
+
+name        old allocs/op  new allocs/op  delta
+/1-4            1.00 ± 0%      1.00 ± 0%      ~     (all equal)
+/10-4           10.0 ± 0%      10.0 ± 0%      ~     (all equal)
+/100-4           100 ± 0%       101 ± 0%    +1.00%  (p=0.000 n=10+10)
+/1000-4        1.00k ± 0%     1.01k ± 0%    +1.50%  (p=0.000 n=10+10)
+/10000-4       10.0k ± 0%     10.2k ± 0%    +1.56%  (p=0.000 n=10+10)
+/100000-4       100k ± 0%      102k ± 0%    +1.56%  (p=0.000 n=10+10)
+/1000000-4     1.00M ± 0%     1.02M ± 0%    +1.56%  (p=0.000 n=10+10)
 ```
 
 #### deque vs [phf](https://github.com/phf/go-queue) - FIFO queue
