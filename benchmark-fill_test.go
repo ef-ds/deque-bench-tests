@@ -26,9 +26,9 @@ import (
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
 	"github.com/ef-ds/benchmark"
-	"github.com/ef-ds/deque"
+	deque "github.com/ef-ds/deque/v2"
 	gammazero "github.com/gammazero/deque"
-	juju "github.com/juju/utils/deque"
+	gostl "github.com/liyue201/gostl/ds/deque"
 	phf "github.com/phf/go-queue/queue"
 	cookiejar "gopkg.in/karalabe/cookiejar.v2/collections/deque"
 )
@@ -76,15 +76,15 @@ func BenchmarkFillListStack(b *testing.B) {
 
 func BenchmarkFillSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	tests.Fill(
+	tests.FillTestObject(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
-		func(v interface{}) {
-			q.PushBack(v.(*benchmark.TestValue))
+		func(v *benchmark.TestValue) {
+			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront()
 		},
 		func() bool {
@@ -95,15 +95,15 @@ func BenchmarkFillSliceQueue(b *testing.B) {
 
 func BenchmarkFillSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	tests.Fill(
+	tests.FillTestObject(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
-		func(v interface{}) {
-			q.PushBack(v.(*benchmark.TestValue))
+		func(v *benchmark.TestValue) {
+			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack()
 		},
 		func() bool {
@@ -113,16 +113,16 @@ func BenchmarkFillSliceStack(b *testing.B) {
 }
 
 func BenchmarkFillGammazeroQueue(b *testing.B) {
-	var q *gammazero.Deque
-	tests.Fill(
+	var q *gammazero.Deque[*benchmark.TestValue]
+	tests.FillTestObject(
 		b,
 		func() {
-			q = new(gammazero.Deque)
+			q = new(gammazero.Deque[*benchmark.TestValue])
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront(), true
 		},
 		func() bool {
@@ -132,16 +132,16 @@ func BenchmarkFillGammazeroQueue(b *testing.B) {
 }
 
 func BenchmarkFillGammazeroStack(b *testing.B) {
-	var q *gammazero.Deque
-	tests.Fill(
+	var q *gammazero.Deque[*benchmark.TestValue]
+	tests.FillTestObject(
 		b,
 		func() {
-			q = new(gammazero.Deque)
+			q = new(gammazero.Deque[*benchmark.TestValue])
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack(), true
 		},
 		func() bool {
@@ -226,40 +226,40 @@ func BenchmarkFillCookiejarStack(b *testing.B) {
 	)
 }
 
-func BenchmarkFillJujuQueue(b *testing.B) {
-	var q *juju.Deque
-	tests.Fill(
+func BenchmarkFillGostlQueue(b *testing.B) {
+	var q *gostl.Deque[*benchmark.TestValue]
+	tests.FillTestObject(
 		b,
 		func() {
-			q = juju.New()
+			q = gostl.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
-			return q.PopFront()
+		func() (*benchmark.TestValue, bool) {
+			return q.PopFront(), true
 		},
 		func() bool {
-			return q.Len() == 0
+			return q.Empty()
 		},
 	)
 }
 
-func BenchmarkFillJujuStack(b *testing.B) {
-	var q *juju.Deque
-	tests.Fill(
+func BenchmarkFillGostlStack(b *testing.B) {
+	q := gostl.New[*benchmark.TestValue]()
+	tests.FillTestObject(
 		b,
 		func() {
-			q = juju.New()
+			q = gostl.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
-			return q.PopBack()
+		func() (*benchmark.TestValue, bool) {
+			return q.PopBack(), true
 		},
 		func() bool {
-			return q.Len() == 0
+			return q.Empty()
 		},
 	)
 }
@@ -284,16 +284,16 @@ func BenchmarkFillImpl7Queue(b *testing.B) {
 }
 
 func BenchmarkFillDequeQueue(b *testing.B) {
-	var q *deque.Deque
-	tests.Fill(
+	var q *deque.Deque[*benchmark.TestValue]
+	tests.FillTestObject(
 		b,
 		func() {
-			q = deque.New()
+			q = deque.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront()
 		},
 		func() bool {
@@ -303,16 +303,16 @@ func BenchmarkFillDequeQueue(b *testing.B) {
 }
 
 func BenchmarkFillDequeStack(b *testing.B) {
-	var q *deque.Deque
-	tests.Fill(
+	var q *deque.Deque[*benchmark.TestValue]
+	tests.FillTestObject(
 		b,
 		func() {
-			q = deque.New()
+			q = deque.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack()
 		},
 		func() bool {

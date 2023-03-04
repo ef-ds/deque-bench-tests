@@ -26,9 +26,9 @@ import (
 
 	"github.com/christianrpetrin/queue-tests/queueimpl7"
 	"github.com/ef-ds/benchmark"
-	"github.com/ef-ds/deque"
+	deque "github.com/ef-ds/deque/v2"
 	gammazero "github.com/gammazero/deque"
-	juju "github.com/juju/utils/deque"
+	gostl "github.com/liyue201/gostl/ds/deque"
 	phf "github.com/phf/go-queue/queue"
 	cookiejar "gopkg.in/karalabe/cookiejar.v2/collections/deque"
 )
@@ -76,15 +76,15 @@ func BenchmarkSlowDecreaseListStack(b *testing.B) {
 
 func BenchmarkSlowDecreaseSliceQueue(b *testing.B) {
 	var q *CustomSliceQueue
-	tests.SlowDecrease(
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
-		func(v interface{}) {
-			q.PushBack(v.(*benchmark.TestValue))
+		func(v *benchmark.TestValue) {
+			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront()
 		},
 		func() bool {
@@ -95,15 +95,15 @@ func BenchmarkSlowDecreaseSliceQueue(b *testing.B) {
 
 func BenchmarkSlowDecreaseSliceStack(b *testing.B) {
 	var q *CustomSliceQueue
-	tests.SlowDecrease(
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
 			q = NewCustomSliceQueue()
 		},
-		func(v interface{}) {
-			q.PushBack(v.(*benchmark.TestValue))
+		func(v *benchmark.TestValue) {
+			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack()
 		},
 		func() bool {
@@ -113,16 +113,16 @@ func BenchmarkSlowDecreaseSliceStack(b *testing.B) {
 }
 
 func BenchmarkSlowDecreaseGammazeroQueue(b *testing.B) {
-	var q *gammazero.Deque
-	tests.SlowDecrease(
+	var q *gammazero.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = new(gammazero.Deque)
+			q = new(gammazero.Deque[*benchmark.TestValue])
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront(), true
 		},
 		func() bool {
@@ -132,16 +132,16 @@ func BenchmarkSlowDecreaseGammazeroQueue(b *testing.B) {
 }
 
 func BenchmarkSlowDecreaseGammazeroStack(b *testing.B) {
-	var q *gammazero.Deque
-	tests.SlowDecrease(
+	var q *gammazero.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = new(gammazero.Deque)
+			q = new(gammazero.Deque[*benchmark.TestValue])
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack(), true
 		},
 		func() bool {
@@ -226,40 +226,40 @@ func BenchmarkSlowDecreaseCookiejarStack(b *testing.B) {
 	)
 }
 
-func BenchmarkSlowDecreaseJujuQueue(b *testing.B) {
-	var q *juju.Deque
-	tests.SlowDecrease(
+func BenchmarkSlowDecreaseGostlQueue(b *testing.B) {
+	var q *gostl.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = juju.New()
+			q = gostl.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
-			return q.PopFront()
+		func() (*benchmark.TestValue, bool) {
+			return q.PopFront(), true
 		},
 		func() bool {
-			return q.Len() == 0
+			return q.Empty()
 		},
 	)
 }
 
-func BenchmarkSlowDecreaseJujuStack(b *testing.B) {
-	var q *juju.Deque
-	tests.SlowDecrease(
+func BenchmarkSlowDecreaseGostlStack(b *testing.B) {
+	var q *gostl.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = juju.New()
+			q = gostl.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
-			return q.PopBack()
+		func() (*benchmark.TestValue, bool) {
+			return q.PopBack(), true
 		},
 		func() bool {
-			return q.Len() == 0
+			return q.Empty()
 		},
 	)
 }
@@ -284,16 +284,16 @@ func BenchmarkSlowDecreaseImpl7Queue(b *testing.B) {
 }
 
 func BenchmarkSlowDecreaseDequeQueue(b *testing.B) {
-	var q *deque.Deque
-	tests.SlowDecrease(
+	var q *deque.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = deque.New()
+			q = deque.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopFront()
 		},
 		func() bool {
@@ -303,16 +303,16 @@ func BenchmarkSlowDecreaseDequeQueue(b *testing.B) {
 }
 
 func BenchmarkSlowDecreaseDequeStack(b *testing.B) {
-	var q *deque.Deque
-	tests.SlowDecrease(
+	var q *deque.Deque[*benchmark.TestValue]
+	tests.SlowDecreaseTestObject(
 		b,
 		func() {
-			q = deque.New()
+			q = deque.New[*benchmark.TestValue]()
 		},
-		func(v interface{}) {
+		func(v *benchmark.TestValue) {
 			q.PushBack(v)
 		},
-		func() (interface{}, bool) {
+		func() (*benchmark.TestValue, bool) {
 			return q.PopBack()
 		},
 		func() bool {

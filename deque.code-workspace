@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../deque"
+		},
+		{
+			"path": "../tools"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../pkg/mod/github.com/ef-ds/deque@v1.0.3"
+		}
+	],
+	"settings": {}
+}
