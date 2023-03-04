@@ -21,7 +21,7 @@ As a general purpose double-ended queue, deque is the queue that displays the mo
 ## Results
 Given the enormous amount of test data, it can be difficult and time consuming to find out the net impact of all the tests, so we generally spend most of the time on the results of the very simple fill tests, which sequentially add and remove N number of items, and the Microservice test, which is a composite test of all other tests.
 
-Below results is for deque [v1.0.3](https://github.com/ef-ds/deque/blob/master/CHANGELOG.md).
+Below results is for deque [v2.0.0](https://github.com/ef-ds/deque/blob/master/CHANGELOG.md).
 
 
 ### Fill Test Results
