@@ -27,7 +27,7 @@ Below results is for deque [v2.0.0](https://github.com/ef-ds/deque/blob/master/C
 ### Fill Test Results
 deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillImpl7Queue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillImpl7Queue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    41.1ns ± 5%     ~     (p=1.000 n=10+10)
 /1-4           160ns ± 1%     142ns ± 0%  -11.39%  (p=0.000 n=10+9)
@@ -61,7 +61,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillListQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillListQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    44.2ns ±23%    +9.20%  (p=0.000 n=10+10)
 /1-4           160ns ± 1%     112ns ± 1%   -30.14%  (p=0.000 n=10+10)
@@ -95,7 +95,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillListStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillListStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%    41.2ns ± 1%    +0.47%  (p=0.048 n=9+9)
 /1-4           160ns ± 1%     113ns ± 1%   -29.62%  (p=0.000 n=10+8)
@@ -129,7 +129,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [CustomSliceQueue](testdata_test.go) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillSliceQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillSliceQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    40.4ns ± 5%      ~     (p=0.062 n=10+9)
 /1-4           160ns ± 1%     104ns ± 1%   -35.28%  (p=0.000 n=10+9)
@@ -163,7 +163,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [CustomSliceQueue](testdata_test.go) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillSliceStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillSliceStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%    39.9ns ± 1%    -2.69%  (p=0.000 n=9+9)
 /1-4           160ns ± 1%     101ns ± 0%   -36.74%  (p=0.000 n=10+9)
@@ -197,7 +197,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [phf](https://github.com/phf/go-queue) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillPhfQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillPhfQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    73.5ns ± 1%   +81.52%  (p=0.000 n=10+9)
 /1-4           160ns ± 1%     109ns ± 0%   -31.98%  (p=0.000 n=10+9)
@@ -231,7 +231,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [phf](https://github.com/phf/go-queue) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillPhfStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillPhfStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%    72.9ns ± 1%   +78.07%  (p=0.000 n=9+9)
 /1-4           160ns ± 1%     107ns ± 0%   -33.01%  (p=0.000 n=10+8)
@@ -265,7 +265,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gammazero](https://github.com/gammazero/deque) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillGammazeroQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillGammazeroQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    41.0ns ± 8%      ~     (p=0.562 n=10+9)
 /1-4           160ns ± 1%     167ns ± 8%      ~     (p=0.062 n=10+10)
@@ -299,7 +299,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gammazero](https://github.com/gammazero/deque) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillGammazeroStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillGammazeroStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%    39.6ns ± 0%    -3.31%  (p=0.000 n=9+10)
 /1-4           160ns ± 1%     154ns ± 1%    -3.64%  (p=0.000 n=10+10)
@@ -333,7 +333,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gostl](https://github.com/liyue201/gostl/blob/master/ds/deque/deque.go) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillGostlQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillGostlQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%    82.6ns ± 1%  +103.91%  (p=0.000 n=10+8)
 /1-4           160ns ± 1%     577ns ± 1%  +260.58%  (p=0.000 n=10+10)
@@ -367,7 +367,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gostl](https://github.com/liyue201/gostl/blob/master/ds/deque/deque.go) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillGostlStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillGostlStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%    83.3ns ± 1%  +103.35%  (p=0.000 n=9+9)
 /1-4           160ns ± 1%     582ns ± 1%  +263.34%  (p=0.000 n=10+9)
@@ -401,7 +401,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - FIFO queue - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillCookiejarQueue.txt
+benchstat testdata/BenchmarkFillDequeQueue.txt testdata/BenchmarkFillCookiejarQueue.txt
 name        old time/op    new time/op    delta
 /0-4          40.5ns ± 0%  8242.8ns ± 1%   +20245.06%  (p=0.000 n=10+10)
 /1-4           160ns ± 1%    8524ns ± 3%    +5228.35%  (p=0.000 n=10+10)
@@ -435,7 +435,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - LIFO stack - [fill tests](benchmark-fill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkFillCookiejarStack.txt
+benchstat testdata/BenchmarkFillDequeStack.txt testdata/BenchmarkFillCookiejarStack.txt
 name        old time/op    new time/op    delta
 /0-4          41.0ns ± 4%  8444.7ns ± 2%   +20513.59%  (p=0.000 n=9+10)
 /1-4           160ns ± 1%    8587ns ± 2%    +5258.71%  (p=0.000 n=10+10)
@@ -470,7 +470,7 @@ name        old allocs/op  new allocs/op  delta
 ### Microservice Test Results
 deque vs [impl7](https://github.com/christianrpetrin/queue-tests/tree/master/queueimpl7/queueimpl7.go) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceImpl7Queue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceImpl7Queue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    43.7ns ± 1%    -4.70%  (p=0.000 n=8+9)
 /1-4           431ns ± 1%     650ns ± 1%   +50.89%  (p=0.000 n=9+9)
@@ -504,7 +504,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceListQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceListQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    44.7ns ± 1%    -2.56%  (p=0.000 n=8+10)
 /1-4           431ns ± 1%     525ns ± 0%   +21.78%  (p=0.000 n=9+9)
@@ -538,7 +538,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [list](https://github.com/golang/go/tree/master/src/container/list) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceListStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroserviceListStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%    44.6ns ± 0%    -2.64%  (p=0.000 n=9+8)
 /1-4           360ns ± 1%     526ns ± 1%   +46.22%  (p=0.000 n=9+10)
@@ -572,7 +572,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [CustomSliceQueue](testdata_test.go) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceSliceQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceSliceQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    43.6ns ± 1%    -4.97%  (p=0.000 n=8+9)
 /1-4           431ns ± 1%     513ns ± 1%   +19.03%  (p=0.000 n=9+9)
@@ -606,7 +606,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [CustomSliceQueue](testdata_test.go) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceSliceStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroserviceSliceStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%    44.2ns ± 1%   -3.56%  (p=0.000 n=9+9)
 /1-4           360ns ± 1%     396ns ± 1%  +10.08%  (p=0.000 n=9+10)
@@ -640,7 +640,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [phf](https://github.com/phf/go-queue) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroservicePhfQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroservicePhfQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    77.3ns ± 1%   +68.54%  (p=0.000 n=8+9)
 /1-4           431ns ± 1%     429ns ± 0%    -0.55%  (p=0.017 n=9+10)
@@ -674,7 +674,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [phf](https://github.com/phf/go-queue) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroservicePhfStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroservicePhfStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%    76.6ns ± 1%   +67.14%  (p=0.000 n=9+9)
 /1-4           360ns ± 1%     434ns ± 0%   +20.71%  (p=0.000 n=9+9)
@@ -708,7 +708,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gammazero](https://github.com/gammazero/deque) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceGammazeroQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceGammazeroQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    43.6ns ± 0%    -4.87%  (p=0.000 n=8+9)
 /1-4           431ns ± 1%     356ns ± 0%   -17.47%  (p=0.000 n=9+9)
@@ -742,7 +742,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gammazero](https://github.com/gammazero/deque) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceGammazeroStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroserviceGammazeroStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%    43.8ns ± 1%    -4.58%  (p=0.000 n=9+10)
 /1-4           360ns ± 1%     360ns ± 1%      ~     (p=0.844 n=9+9)
@@ -776,7 +776,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gostl](https://github.com/liyue201/gostl/blob/master/ds/deque/deque.go) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceGostlQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceGostlQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%    87.9ns ± 2%   +91.81%  (p=0.000 n=8+9)
 /1-4           431ns ± 1%    1243ns ± 1%  +188.38%  (p=0.000 n=9+9)
@@ -810,7 +810,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [gostl](https://github.com/liyue201/gostl/blob/master/ds/deque/deque.go) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceGostlStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroserviceGostlStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%    87.1ns ± 1%   +89.85%  (p=0.000 n=9+8)
 /1-4           360ns ± 1%    1307ns ± 3%  +263.31%  (p=0.000 n=9+9)
@@ -844,7 +844,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - FIFO queue - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceCookiejarQueue.txt
+benchstat testdata/BenchmarkMicroserviceDequeQueue.txt testdata/BenchmarkMicroserviceCookiejarQueue.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 0%  8574.9ns ± 2%   +18601.56%  (p=0.000 n=8+10)
 /1-4           431ns ± 1%    8934ns ± 2%    +1972.99%  (p=0.000 n=9+9)
@@ -878,7 +878,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs [cookiejar](https://github.com/karalabe/cookiejar/blob/master/collections/deque/deque.go) - LIFO stack - [microservice tests](benchmark-microservice_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkMicroserviceCookiejarStack.txt
+benchstat testdata/BenchmarkMicroserviceDequeStack.txt testdata/BenchmarkMicroserviceCookiejarStack.txt
 name        old time/op    new time/op    delta
 /0-4          45.9ns ± 1%  8828.7ns ± 3%   +19154.68%  (p=0.000 n=9+10)
 /1-4           360ns ± 1%    9156ns ± 2%    +2445.17%  (p=0.000 n=9+9)
@@ -915,7 +915,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs impl7 - FIFO queue
 deque vs impl7 - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillImpl7Queue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillImpl7Queue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%   10.21µs ± 1%  +174.76%  (p=0.000 n=9+9)
 /10-4        35.9µs ± 3%    69.2µs ± 1%   +92.87%  (p=0.000 n=10+10)
@@ -943,7 +943,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs impl7 - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullImpl7Queue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullImpl7Queue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    3.75µs ± 0%    +6.16%  (p=0.000 n=10+10)
 /10-4        34.0µs ± 1%    37.3µs ± 1%    +9.72%  (p=0.000 n=9+8)
@@ -971,7 +971,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs impl7 - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseImpl7Queue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseImpl7Queue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     236ns ± 1%   +20.63%  (p=0.000 n=10+9)
 /10-4         1.05µs ± 1%    1.51µs ± 1%   +44.58%  (p=0.000 n=9+9)
@@ -1002,7 +1002,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs impl7 - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseImpl7Queue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseImpl7Queue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%   102.0ns ± 1%  +181.48%  (p=0.000 n=9+8)
 /10-4          368ns ± 1%    1028ns ± 0%  +179.50%  (p=0.000 n=10+10)
@@ -1033,7 +1033,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs impl7 - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableImpl7Queue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableImpl7Queue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    36.6ns ± 2%    +8.01%  (p=0.000 n=8+10)
 /10-4          344ns ± 1%     369ns ± 1%    +7.44%  (p=0.000 n=10+9)
@@ -1065,7 +1065,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs list - FIFO queue
 deque vs list - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillListQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillListQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%    7.26µs ± 0%   +95.38%  (p=0.000 n=9+8)
 /10-4        35.9µs ± 3%    70.9µs ± 0%   +97.66%  (p=0.000 n=10+10)
@@ -1093,7 +1093,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs list - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullListQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullListQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    8.24µs ± 0%  +133.57%  (p=0.000 n=10+8)
 /10-4        34.0µs ± 1%    93.3µs ± 3%  +174.25%  (p=0.000 n=9+10)
@@ -1121,7 +1121,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs list - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseListQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseListQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     183ns ± 1%    -6.54%  (p=0.000 n=10+10)
 /10-4         1.05µs ± 1%    1.44µs ± 1%   +37.35%  (p=0.000 n=9+9)
@@ -1152,7 +1152,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs list - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseListQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseListQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%    70.1ns ± 1%   +93.40%  (p=0.000 n=9+10)
 /10-4          368ns ± 1%     705ns ± 1%   +91.59%  (p=0.000 n=10+9)
@@ -1183,7 +1183,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs list - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableListQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableListQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    82.8ns ± 1%  +144.45%  (p=0.000 n=8+10)
 /10-4          344ns ± 1%     825ns ± 3%  +139.99%  (p=0.000 n=10+9)
@@ -1215,7 +1215,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs list - LIFO stack
 deque vs list - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillListStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillListStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%    7.23µs ± 1%   +97.23%  (p=0.000 n=9+9)
 /10-4        34.1µs ± 1%    70.6µs ± 1%  +107.06%  (p=0.000 n=9+9)
@@ -1243,7 +1243,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs list - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullListStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullListStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    9.86µs ± 4%  +173.50%  (p=0.000 n=9+10)
 /10-4        35.2µs ± 2%    97.9µs ± 6%  +177.87%  (p=0.000 n=10+10)
@@ -1271,7 +1271,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs list - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseListStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreaseListStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%     179ns ± 1%    -8.69%  (p=0.000 n=10+10)
 /10-4          890ns ± 2%    1422ns ± 1%   +59.70%  (p=0.000 n=10+10)
@@ -1302,7 +1302,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs list - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseListStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreaseListStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%    70.3ns ± 0%   +92.27%  (p=0.000 n=10+9)
 /10-4          369ns ± 1%     705ns ± 0%   +90.67%  (p=0.000 n=8+10)
@@ -1333,7 +1333,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs list - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableListStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStableListStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    97.8ns ± 2%  +176.08%  (p=0.000 n=10+8)
 /10-4          362ns ± 4%     977ns ± 3%  +170.28%  (p=0.000 n=10+10)
@@ -1365,7 +1365,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs [CustomSliceQueue](testdata_test.go) - FIFO queue
 deque vs CustomSliceQueue - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillSliceQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillSliceQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%    6.27µs ± 1%   +68.59%  (p=0.000 n=9+10)
 /10-4        35.9µs ± 3%    47.6µs ± 0%   +32.55%  (p=0.000 n=10+9)
@@ -1393,7 +1393,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullSliceQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullSliceQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    4.32µs ± 4%   +22.48%  (p=0.000 n=10+9)
 /10-4        34.0µs ± 1%    40.4µs ± 0%   +18.71%  (p=0.000 n=9+9)
@@ -1421,7 +1421,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseSliceQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseSliceQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     187ns ± 1%    -4.33%  (p=0.000 n=10+10)
 /10-4         1.05µs ± 1%    1.16µs ± 0%   +10.52%  (p=0.000 n=9+9)
@@ -1452,7 +1452,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseSliceQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseSliceQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%    60.2ns ± 1%   +66.15%  (p=0.000 n=9+9)
 /10-4          368ns ± 1%     598ns ± 1%   +62.65%  (p=0.000 n=10+9)
@@ -1483,7 +1483,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableSliceQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableSliceQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    40.3ns ± 4%   +18.85%  (p=0.000 n=8+10)
 /10-4          344ns ± 1%     404ns ± 3%   +17.55%  (p=0.000 n=10+9)
@@ -1515,7 +1515,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs CustomSliceQueue - LIFO stack
 deque vs CustomSliceQueue - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillSliceStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillSliceStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%    3.21µs ± 1%  -12.30%  (p=0.000 n=9+9)
 /10-4        34.1µs ± 1%    31.3µs ± 1%   -8.35%  (p=0.000 n=9+9)
@@ -1543,7 +1543,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullSliceStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullSliceStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    3.20µs ± 2%  -11.35%  (p=0.000 n=9+9)
 /10-4        35.2µs ± 2%    30.6µs ± 2%  -13.18%  (p=0.000 n=10+10)
@@ -1571,7 +1571,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseSliceStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreaseSliceStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%     185ns ± 1%   -5.85%  (p=0.000 n=10+10)
 /10-4          890ns ± 2%     950ns ± 2%   +6.65%  (p=0.000 n=10+9)
@@ -1602,7 +1602,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseSliceStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreaseSliceStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%    32.8ns ± 2%  -10.38%  (p=0.000 n=10+10)
 /10-4          369ns ± 1%     331ns ± 1%  -10.53%  (p=0.000 n=8+9)
@@ -1633,7 +1633,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs CustomSliceQueue - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableSliceStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStableSliceStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    29.4ns ± 1%  -17.15%  (p=0.000 n=10+9)
 /10-4          362ns ± 4%     298ns ± 1%  -17.49%  (p=0.000 n=10+10)
@@ -1665,7 +1665,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs phf - FIFO queue
 deque vs phf - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillPhfQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillPhfQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%    3.53µs ± 2%    -4.90%  (p=0.000 n=9+8)
 /10-4        35.9µs ± 3%    52.5µs ± 4%   +46.44%  (p=0.000 n=10+8)
@@ -1693,7 +1693,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs phf - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullPhfQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullPhfQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    3.57µs ± 0%    +1.24%  (p=0.008 n=10+8)
 /10-4        34.0µs ± 1%    35.2µs ± 1%    +3.32%  (p=0.000 n=9+10)
@@ -1721,7 +1721,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs phf - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreasePhfQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreasePhfQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     202ns ± 1%    +3.31%  (p=0.000 n=10+9)
 /10-4         1.05µs ± 1%    1.17µs ± 0%   +12.22%  (p=0.000 n=9+9)
@@ -1752,7 +1752,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs phf - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreasePhfQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreasePhfQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%    34.9ns ± 1%  -3.64%  (p=0.000 n=9+9)
 /10-4          368ns ± 1%     354ns ± 1%  -3.75%  (p=0.000 n=10+9)
@@ -1783,7 +1783,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs phf - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStablePhfQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStablePhfQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    34.1ns ± 2%    ~     (p=0.179 n=8+10)
 /10-4          344ns ± 1%     343ns ± 1%    ~     (p=0.811 n=10+10)
@@ -1815,7 +1815,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs phf - LIFO stack
 deque vs phf - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillPhfStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillPhfStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%    3.58µs ± 6%    -2.25%  (p=0.023 n=9+10)
 /10-4        34.1µs ± 1%    58.2µs ±38%   +70.64%  (p=0.000 n=9+10)
@@ -1843,7 +1843,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs phf - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullPhfStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullPhfStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    3.47µs ± 1%    -3.62%  (p=0.000 n=9+9)
 /10-4        35.2µs ± 2%    34.8µs ± 1%    -1.24%  (p=0.002 n=10+9)
@@ -1871,7 +1871,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs phf - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreasePhfStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreasePhfStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%     201ns ± 1%    +2.17%  (p=0.000 n=10+10)
 /10-4          890ns ± 2%    1156ns ± 0%   +29.77%  (p=0.000 n=10+9)
@@ -1902,7 +1902,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs phf - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreasePhfStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreasePhfStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%    34.1ns ± 2%  -6.85%  (p=0.000 n=10+9)
 /10-4          369ns ± 1%     345ns ± 1%  -6.75%  (p=0.000 n=8+9)
@@ -1933,7 +1933,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs phf - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStablePhfStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStablePhfStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    33.4ns ± 1%  -5.82%  (p=0.000 n=10+9)
 /10-4          362ns ± 4%     339ns ± 1%  -6.32%  (p=0.000 n=10+10)
@@ -1965,7 +1965,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs gammazero - FIFO queue
 deque vs gammazero - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillGammazeroQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillGammazeroQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%    3.55µs ± 1%    -4.61%  (p=0.000 n=9+10)
 /10-4        35.9µs ± 3%    34.5µs ± 1%    -3.77%  (p=0.000 n=10+9)
@@ -1993,7 +1993,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs gammazero - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullGammazeroQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullGammazeroQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    3.55µs ± 1%    +0.75%  (p=0.037 n=10+10)
 /10-4        34.0µs ± 1%    35.3µs ± 1%    +3.66%  (p=0.000 n=9+10)
@@ -2021,7 +2021,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs gammazero - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseGammazeroQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseGammazeroQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     189ns ± 1%    -3.35%  (p=0.000 n=10+10)
 /10-4         1.05µs ± 1%    0.78µs ± 1%   -25.28%  (p=0.000 n=9+10)
@@ -2052,7 +2052,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs gammazero - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseGammazeroQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseGammazeroQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%    34.4ns ± 1%  -5.16%  (p=0.000 n=9+10)
 /10-4          368ns ± 1%     347ns ± 0%  -5.57%  (p=0.000 n=10+9)
@@ -2083,7 +2083,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs gammazero - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableGammazeroQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableGammazeroQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    33.7ns ± 1%    ~     (p=0.063 n=8+9)
 /10-4          344ns ± 1%     341ns ± 1%  -0.81%  (p=0.003 n=10+9)
@@ -2115,7 +2115,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs gammazero - LIFO stack
 deque vs gammazero - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillGammazeroStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillGammazeroStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%    3.55µs ± 1%    -3.15%  (p=0.000 n=9+10)
 /10-4        34.1µs ± 1%    34.4µs ± 1%    +0.95%  (p=0.006 n=9+9)
@@ -2143,7 +2143,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs gammazero - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullGammazeroStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullGammazeroStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    3.47µs ± 1%    -3.66%  (p=0.000 n=9+8)
 /10-4        35.2µs ± 2%    34.8µs ± 0%    -1.23%  (p=0.001 n=10+9)
@@ -2171,7 +2171,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs gammazero - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseGammazeroStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreaseGammazeroStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%     189ns ± 0%    -3.82%  (p=0.000 n=10+9)
 /10-4          890ns ± 2%     784ns ± 1%   -11.92%  (p=0.000 n=10+9)
@@ -2202,7 +2202,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs gammazero - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseGammazeroStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreaseGammazeroStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%    34.1ns ± 1%  -6.65%  (p=0.000 n=10+9)
 /10-4          369ns ± 1%     346ns ± 0%  -6.40%  (p=0.000 n=8+10)
@@ -2233,7 +2233,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs gammazero - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableGammazeroStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStableGammazeroStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    33.0ns ± 1%  -6.84%  (p=0.000 n=10+9)
 /10-4          362ns ± 4%     334ns ± 0%  -7.56%  (p=0.000 n=10+8)
@@ -2265,7 +2265,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs Gostl - FIFO queue
 deque vs Gostl - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillGostlQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillGostlQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%   19.76µs ± 1%  +431.84%  (p=0.000 n=9+10)
 /10-4        35.9µs ± 3%    97.8µs ± 1%  +172.57%  (p=0.000 n=10+10)
@@ -2293,7 +2293,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs Gostl - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullGostlQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullGostlQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    8.73µs ± 3%  +147.52%  (p=0.000 n=10+9)
 /10-4        34.0µs ± 1%    85.8µs ± 1%  +152.05%  (p=0.000 n=9+8)
@@ -2321,7 +2321,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs Gostl - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseGostlQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseGostlQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%     662ns ± 1%  +239.15%  (p=0.000 n=10+10)
 /10-4         1.05µs ± 1%    2.20µs ± 1%  +110.66%  (p=0.000 n=9+10)
@@ -2352,7 +2352,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs Gostl - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseGostlQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseGostlQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%   199.9ns ± 0%  +451.81%  (p=0.000 n=9+10)
 /10-4          368ns ± 1%    2003ns ± 1%  +444.44%  (p=0.000 n=10+10)
@@ -2383,7 +2383,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs Gostl - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableGostlQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableGostlQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%  1243.0ns ± 1%  +3569.37%  (p=0.000 n=8+9)
 /10-4          344ns ± 1%    7496ns ± 0%  +2081.29%  (p=0.000 n=10+8)
@@ -2415,7 +2415,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs Gostl - LIFO stack
 deque vs Gostl - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillGostlStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillGostlStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%   20.10µs ± 1%  +448.44%  (p=0.000 n=9+9)
 /10-4        34.1µs ± 1%   107.5µs ± 1%  +215.03%  (p=0.000 n=9+9)
@@ -2443,7 +2443,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs Gostl - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullGostlStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullGostlStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    9.91µs ± 1%  +174.87%  (p=0.000 n=9+10)
 /10-4        35.2µs ± 2%    96.6µs ± 1%  +174.09%  (p=0.000 n=10+8)
@@ -2471,7 +2471,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs Gostl - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseGostlStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreaseGostlStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%     680ns ± 0%  +245.93%  (p=0.000 n=10+9)
 /10-4          890ns ± 2%    2444ns ± 0%  +174.50%  (p=0.000 n=10+10)
@@ -2502,7 +2502,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs Gostl - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseGostlStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreaseGostlStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%   204.7ns ± 1%  +459.80%  (p=0.000 n=10+10)
 /10-4          369ns ± 1%    2052ns ± 0%  +455.50%  (p=0.000 n=8+10)
@@ -2533,7 +2533,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs Gostl - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableGostlStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStableGostlStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    97.2ns ± 1%  +174.32%  (p=0.000 n=10+9)
 /10-4          362ns ± 4%     968ns ± 1%  +167.71%  (p=0.000 n=10+10)
@@ -2565,7 +2565,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs cookiejar - FIFO queue
 deque vs cookiejar - FIFO queue - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillCookiejarQueue.txt
+benchstat testdata/BenchmarkRefillDequeQueue.txt testdata/BenchmarkRefillCookiejarQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.72µs ± 1%    3.48µs ± 1%   -6.29%  (p=0.000 n=9+10)
 /10-4        35.9µs ± 3%    33.3µs ± 1%   -7.25%  (p=0.000 n=10+9)
@@ -2593,7 +2593,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - FIFO queue - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullCookiejarQueue.txt
+benchstat testdata/BenchmarkRefillFullDequeQueue.txt testdata/BenchmarkRefillFullCookiejarQueue.txt
 name       old time/op    new time/op    delta
 /1-4         3.53µs ± 2%    3.25µs ± 0%   -7.97%  (p=0.000 n=10+9)
 /10-4        34.0µs ± 1%    32.6µs ± 2%   -4.18%  (p=0.000 n=9+10)
@@ -2621,7 +2621,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - FIFO queue - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseCookiejarQueue.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeQueue.txt testdata/BenchmarkSlowIncreaseCookiejarQueue.txt
 name        old time/op    new time/op    delta
 /1-4           195ns ± 1%    9482ns ±11%   +4755.03%  (p=0.000 n=10+8)
 /10-4         1.05µs ± 1%    9.85µs ± 1%    +842.50%  (p=0.000 n=9+7)
@@ -2652,7 +2652,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - FIFO queue - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseCookiejarQueue.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeQueue.txt testdata/BenchmarkSlowDecreaseCookiejarQueue.txt
 name        old time/op    new time/op    delta
 /1-4          36.2ns ± 1%    33.0ns ± 1%   -8.84%  (p=0.000 n=9+10)
 /10-4          368ns ± 1%     334ns ± 0%   -9.20%  (p=0.000 n=10+9)
@@ -2683,7 +2683,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - FIFO queue - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeQueue.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableCookiejarQueue.txt
+benchstat testdata/BenchmarkStableDequeQueue.txt testdata/BenchmarkStableCookiejarQueue.txt
 name        old time/op    new time/op    delta
 /1-4          33.9ns ± 1%    31.4ns ± 1%   -7.23%  (p=0.000 n=8+10)
 /10-4          344ns ± 1%     319ns ± 1%   -7.25%  (p=0.000 n=10+10)
@@ -2715,7 +2715,7 @@ name        old allocs/op  new allocs/op  delta
 #### deque vs cookiejar - LIFO stack
 deque vs cookiejar - LIFO stack - [refill tests](benchmark-refill_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillCookiejarStack.txt
+benchstat testdata/BenchmarkRefillDequeStack.txt testdata/BenchmarkRefillCookiejarStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.66µs ± 1%    3.47µs ± 0%   -5.38%  (p=0.000 n=9+8)
 /10-4        34.1µs ± 1%    33.2µs ± 1%   -2.62%  (p=0.000 n=9+9)
@@ -2743,7 +2743,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - LIFO stack - [refill full tests](benchmark-refill-full_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkRefillFullCookiejarStack.txt
+benchstat testdata/BenchmarkRefillFullDequeStack.txt testdata/BenchmarkRefillFullCookiejarStack.txt
 name       old time/op    new time/op    delta
 /1-4         3.60µs ± 1%    3.29µs ± 2%   -8.78%  (p=0.000 n=9+10)
 /10-4        35.2µs ± 2%    32.6µs ± 1%   -7.35%  (p=0.000 n=10+9)
@@ -2771,7 +2771,7 @@ name       old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - LIFO stack - [slow increase tests](benchmark-slow-increase_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowIncreaseCookiejarStack.txt
+benchstat testdata/BenchmarkSlowIncreaseDequeStack.txt testdata/BenchmarkSlowIncreaseCookiejarStack.txt
 name        old time/op    new time/op    delta
 /1-4           196ns ± 1%    9014ns ± 1%   +4487.80%  (p=0.000 n=10+10)
 /10-4          890ns ± 2%    9886ns ± 2%   +1010.14%  (p=0.000 n=10+10)
@@ -2802,7 +2802,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - LIFO stack - [slow decrease tests](benchmark-slow-decrease_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkSlowDecreaseCookiejarStack.txt
+benchstat testdata/BenchmarkSlowDecreaseDequeStack.txt testdata/BenchmarkSlowDecreaseCookiejarStack.txt
 name        old time/op    new time/op    delta
 /1-4          36.6ns ± 2%    33.2ns ± 0%  -9.35%  (p=0.000 n=10+10)
 /10-4          369ns ± 1%     335ns ± 0%  -9.40%  (p=0.000 n=8+9)
@@ -2833,7 +2833,7 @@ name        old allocs/op  new allocs/op  delta
 
 deque vs cookiejar - LIFO stack - [stable tests](benchmark-stable_test.go)
 ```
-benchstat ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableDequeStack.txt ./../../../ef-ds/deque-bench-tests/testdata/BenchmarkStableCookiejarStack.txt
+benchstat testdata/BenchmarkStableDequeStack.txt testdata/BenchmarkStableCookiejarStack.txt
 name        old time/op    new time/op    delta
 /1-4          35.4ns ± 2%    31.3ns ± 1%  -11.69%  (p=0.000 n=10+10)
 /10-4          362ns ± 4%     316ns ± 1%  -12.72%  (p=0.000 n=10+9)
